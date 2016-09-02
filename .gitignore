@@ -22,3 +22,5 @@
 *.mtc1
 *.out
 *.synctex.gz
+.idea
+wakaruland-wiss2016.iml
