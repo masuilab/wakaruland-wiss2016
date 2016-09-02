@@ -1,137 +1,92 @@
-\section{論文執筆について}
+\section{わかるらんど}
 
-\subsection{全般的な注意事項}
+\subsection{ユーザインタフェース}
 
-このスタイルクラスを利用するには，\verb|wiss.cls|，
-\verb|wissbase11.cls|，\verb|jwiss.bst|をコンパイラが参照できるパスに置
-く．通常は\TeX 文書ファイルと同じディレクトリに置けば自動的に参照される．
-また\TeX 文書の先頭にある\verb|\documentclass|で\verb|wiss|を指定する．
-全体としては右の枠線内のようになる．
+図\ref{dashboard}図\ref{console}はわかるらんどのスクリーンショットである。
+ユーザインタフェースは、ダッシュボード、投稿画面の2つからなる。
+ダッシュボードと投稿画面はいずれも単一の画面で、上部のボタンで切り替えて利用する。
+ダッシュボードには指定した情報を表示するウィジェット（図\ref{widget}）を格子状に並べることができる。
 
-論文の文体は「だ」「である」調，句読点は「，」「．」を強く推奨する．図の
-レイアウトなどの特別な場合を除いて本文は2段組とする．原稿は
-\textgt{A4サイズpdf出力}し，上下左右のマージンは厳守しなければな
-らない．また，ページ数は必ず規定のページ数でなければならない．
-まれにレターサイズになってしまっている原稿があるため要注意．
+ウィジェットには人間の感情や状態を表示するwakariウィジェットとセンサ情報などの数値を表示するdataウィジェットの2種類がある。
+ウィジェットのバックグラウンドには人/物/現象の画像を表示し、その上に情報をオーバーレイで表示する。
+情報はリアルタイムに更新が反映され、最新の情報のみを表示する。
+投稿画面ではユーザとしてダッシュボードに投稿を行うことができる。
+投稿はスタンプをクリックすることで行う。
+スタンプはテキストから作ることもできるし画像URLから追加することもできる。
+また、スタンプ投稿時にクリックの長さを変えることでダッシュボードに表示する時間を変更することができる。
 
-Overfull (規定の枠内からはみ出して文字を書くこと)してはならない．本文中
-や参考文献で長いURLなどを書き入れると，
-\verb|http://www.sample.url.xx.yyy/| のようにOverfullが発生することがあ
-る．必ず仕上がりを確認し，このようなことが起きないように文章を調整する．
-URLの場合は\verb|\url{}|を使うことによって適切な個所で改行される．
-はみ出した部分については編集者において削除することがある．
-
-\begin{screen}
-\begin{verbatim}
-\documentclass[twoside]{wiss}
-.....
-\journalhead{...}
-\begin{document}
-\title{...}
-\etitle{...}
-\author{...
-    \affil{...}}
-\begin{abstract}
-.....
-\end{abstract}
-\maketitle
-\section{...}
-本文...
-
-\bibliographystyle{jwiss}
-\bibliography{...}
-
-\begin{figure*}[!b]
-未来ビジョン関連のlatex記述
-\end{figure*}
-\end{verbatim}
-\end{screen}
-
-
-
-\subsection{表題，著者名，著者所属，概要}
-
-和文タイトルを\verb|\title{}|と\verb|\journalhead{}|の\underline{\textbf{両方に}}書く．
-\verb|\journalhead{}|に書かれたタイトルは3ページ目以降の奇数ページの
-ヘッダ（ハシラ）として現れる．この際，必ず表題と同じになっているかを確認すること．
-また，1ページ目のタイトルは右側の余白にはみ出さないように注意する．
-
-\begin{figure}[htp]
+\begin{figure}
 \centering
-\setlength{\unitlength}{1mm}
-\begin{picture}(90,30)
-\put(50,8){\line(0,1){16}}
-\put(15,22){\vector(1,0){35}}
-\put(15,23){\small \textbf{はみださないように}}
+\includegraphics[width=7cm]{images/dashboard.eps}
+\caption{ダッシュボード}
+\label{dashboard}
+\end{figure}
 
-\put(0,15){\makebox(50,3){\small per Dooper Title Styling System}}
-\put(0,0){\makebox(50,10)[tr]{る場合，著者は必ず仕上がりを}}
-\put(0,0){\makebox(50,6)[tr]{奇数ページのヘッダ(ハシラ)が}}
-\put(0,0){\makebox(50,2)[tr]{を同じ意味の短い表現に改める}}
+\begin{figure}
+\centering
+\includegraphics[width=7cm]{images/console.eps}
+\caption{投稿画面}
+\label{console}
+\end{figure}
 
-\multiput(70,0)(0,2){15}{\line(0,1){1}}
-\multiput(0,30)(2,0){35}{\line(1,0){1}}
+\begin{figure}
+\centering
+\includegraphics[width=7cm]{images/widget.eps}
+\caption{wakariウィジェット（左）とdataウィジェット（右）}
+\label{widget}
+\end{figure}
 
-\put(52,27){\tiny (奇数ページ右上)}
-\put(55,15){\small ヘッダ(ハシラ)}
-\put(55,0){\makebox(8,10)[l]{\small 本文}}
-\end{picture}
-\caption{ヘッダの例}
-\label{figure:header}
-\end{figure} 
+\subsection{利用例}
 
-原稿を作成する場合，著者は必ず仕上がりを確認する．3ページ以
-上の原稿については，3ページ目以降の奇数ページのヘッダ(ハシラ)がページ幅
-を越えないように適切な長さのタイトルを付けること．ヘッダ(ハシラ)は途中で改行し
-てはならない．また，\verb|\journalhead{}|の中を空にしてはならない．なお，
-ページ番号はページ下部中央に書き込まれる．
+\subsubsection{発表や講義での利用例}
 
-2016年はシングルブラインド査読のため，投稿時に著者名，所属を記入すること．
-著者名の姓と名の間には半角スペースを入れ，著者名の区切りはタブまたは2文字以上の全角スペースを用いる．カンマ区切りではないので注意．
-著者の所属が著者によって異なる場合は，上付き文字でマークをつけ，
-所属名をマークごとに1p目左下「Copyright is held by the author(s).」の次の行に記入する．英文名を併記する必要はない．
-また，全著者の所属が同じ場合は，マークを付ける必要はない．
+図\ref{discussion}は講義や発表での利用例である。
+これをサブスクリーンに表示することで、他の参加者の感情を把握したり登壇者が聴衆の反応を見ながら発表をすることができる。
+また図\ref{vote}のようにアンケートを取ったり、図\ref{rescue}のように「寒い」「トイレに行きたい」など、
+口頭では伝えにくい感情を周囲に伝えることもできる。
 
-%英文によるアブストラクト（論文概要）を\verb|\begin{abstract}|と\verb|\end{abstract}|の間に200ワード程度で書く．
-% modified by akita 2007/6/29
-アブストラクト（論文概要）は，\verb|\begin{abstract}|と\verb|\end{abstract}|の間に，
-400文字程度の和文で書く（英文は2012年で廃止）．「概要．」と概要本文の間は改行せず，一続きで書く．
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{images/discussion.eps}
+\caption{会議での利用}
+\label{discussion}
+\end{figure}
 
-\subsection{本文}
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{images/vote.eps}
+\caption{アンケートとしての利用}
+\label{vote}
+\end{figure}
 
-\verb|\section{}|，\verb|\subsection{}|など，スタイルクラスで用意されて
-いる章立てを用いながら，通常の \LaTeXe 文書執筆の要領で書く．
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{images/rescue.eps}
+\caption{言い出しにくいことを伝える}
+\label{rescue}
+\end{figure}
 
-特別な場合を除き，投稿された原稿がそのままカメラレディとなるため，誤字脱字や不明瞭な表現が無いよう，十分にチェックの上投稿すること（共著者によるチェックも投稿前に受けること）．また，図表については十分な画質があるように著者において出力すること．なお，写真などもすべて原稿中に組み込んで出力すること．
+\subsubsection{センサ情報等の表示}
 
-\subsection{参考文献}
-参考文献は，本文で「文献[3][4]で…」というようにカッコ書きで引用し，
-文末に参考文献リストを作成する．
-本文中では参考文献リスト中の\verb|\bibitem{}|をキーにして，本文中に\verb|\cite{}|
-と記述することで引用することができる．
+図\ref{sensors}は、明るさ、ドアが最後に開いた時間、気温、風速、天気、メール未読件数、株価、電力使用量を表示した例である。
+センサの値やインターネット上の情報、コンピュータの情報などをひと目で把握することができる。
 
-例）参考文献リストにおいて
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{images/sensors.eps}
+\caption{センサやWebの情報を表示}
+\label{sensors}
+\end{figure}
 
-\verb|\bibitem{rekimoto2000}|と記述した場合，
+\subsubsection{家庭内サイネージ}
 
-本文中に\verb|\cite{rekimoto2000}|と記述すると　\cite{rekimoto2000}　と表示される．
+図\ref{home}は家庭での利用例である。
+左上の夕食は家で食べるかという問いかけに対し、短いメッセージでを送ったり画像で返答することもできる。
+また、ペットなど人間以外にセンサを取り付けて投稿させることも可能である。
 
-参考文献リストは\textsc{JBib}\TeX を用いて文献データベースから自動生成すること
-を強く推奨する．文献スタイルは\verb|jwiss|を使う．手書きで作成する場合に
-は，文末の例のように著者名，論文名，所収冊子名(英文の場合には斜体)，ペー
-ジ番号，発行年の順で書く．英文で著者名を書く場合には，名(first name) の
-イニシャル，姓(last name)の順に書く．共著者が多い場合には「et al.」で省
-略してもよい．このテンプレートでは，同梱の\verb|wiss_template.bbl|が
-参考文献リストになっているので適宜参照のこと．
-英語の文献リストの書式としてはIEEE style manual\cite{IEEE2014}が詳しい．
-
-なお，参考文献にURLを指定する場合には，そのページが存在し
-ていることを投稿前に必ずもう一度確認し，参照日を記載する．
-本来，ニュース記事のように短い期間でURL が変更されたりページ自体が消滅する恐れ
-のあるWebページは参考文献として好ましくない．
-
-\subsection{未来ビジョン}
-未来ビジョンについては，必須とせず任意とする．論文本体とは別
-に，「この研究はどういう未来を切り拓くのか」について，著者の視点からア
-ピールしたい点があれば，最終頁に欄を設けて設けて自由に議論する．
-外枠の大きさはページ下余白から最大93mmの範囲であれば，ある程度改変してもよいものとする．
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{images/home.eps}
+\caption{家庭での利用}
+\label{home}
+\end{figure}
