@@ -3,4 +3,4 @@
 ## PDFを作る
 
     % platex wiss_template.tex
-    % dvipdfmx wiss_template.dvi
+    % dvipdfmx -p a4 wiss_template.dvi
