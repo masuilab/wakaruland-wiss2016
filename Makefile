@@ -1,3 +1,8 @@
 all:
-	platex wiss_template.tex
-	dvipdfmx -p a4 wiss_template.dvi
+	platex paper
+	dvipdfmx -p a4 paper.dvi
+
+clean:
+	/bin/rm -r -f *~
+	/bin/rm -r -f \#*
+	/bin/rm -r -f *.dvi *.log *.blg *.aux *.bbl
